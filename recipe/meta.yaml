@@ -1,11 +1,11 @@
 package:
   name: python-hdfs
-  version: "2.0.4"
+  version: "2.0.5"
 
 source:
-  fn: hdfs-2.0.4.tar.gz
-  url: https://pypi.python.org/packages/source/h/hdfs/hdfs-2.0.4.tar.gz
-  md5: c48b86a0fb05d22b5f4eb4cb84fc6452
+  fn: hdfs-2.0.5.tar.gz
+  url: https://pypi.python.org/packages/source/h/hdfs/hdfs-2.0.5.tar.gz
+  md5: b2c5e6b46fceef7fb9cb0218167c58aa
 
 build:
   number: 0
