@@ -5,7 +5,7 @@ Home: http://hdfscli.readthedocs.org
 
 Package license: MIT
 
-Feedstock license: BSD
+Feedstock license: BSD 3-Clause
 
 Summary: HdfsCLI: API and command line interface for HDFS.
 
@@ -69,6 +69,7 @@ Terminology
 
 Current build status
 ====================
+
 Linux: [![Circle CI](https://circleci.com/gh/conda-forge/python-hdfs-feedstock.svg?style=svg)](https://circleci.com/gh/conda-forge/python-hdfs-feedstock)
 OSX: [![TravisCI](https://travis-ci.org/conda-forge/python-hdfs-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/python-hdfs-feedstock) 
 Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/python-hdfs-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/python-hdfs-feedstock/branch/master)
