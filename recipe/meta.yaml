@@ -1,46 +1,47 @@
+{% set version = "2.0.16" %}
+
 package:
   name: python-hdfs
-  version: "2.0.5"
+  version: {{ version }}
 
 source:
-  fn: hdfs-2.0.5.tar.gz
-  url: https://pypi.python.org/packages/source/h/hdfs/hdfs-2.0.5.tar.gz
-  md5: b2c5e6b46fceef7fb9cb0218167c58aa
+  fn: hdfs-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/h/hdfs/hdfs-{{ version }}.tar.gz
+  sha256: 68ec3734d4ce02dc407be8bc5a2da8411a7f143270a1da9fdfc9dce0fb1a7d6b
 
 build:
+  skip: True  # [py36]
   number: 0
   entry_points:
     - hdfscli = hdfs.__main__:main
-    # disabled due to optional avro dependency
-    # - hdfscli-avro = hdfs.ext.avro.__main__:main
-
+    - hdfscli-avro = hdfs.ext.avro.__main__:main
   script: python setup.py install --single-version-externally-managed --record record.txt
 
 requirements:
   build:
     - python
     - setuptools
-    - docopt
-    - requests >=2.7.0
-    - six >=1.9.0
 
   run:
     - python
     - docopt
+    - fastavro >=0.9.6
+    - pandas >=0.14.1
     - requests >=2.7.0
+    - requests-kerberos >=0.7.0
     - six >=1.9.0
 
 test:
   imports:
     - hdfs
     - hdfs.ext
-    # disabled due to optional avro dependency
-    # - hdfs.ext.avro
+    - hdfs.ext.avro
+    - hdfs.ext.dataframe
+    - hdfs.ext.kerberos
 
   commands:
     - hdfscli --help
-    # disabled due to optional avro dependency
-    # - hdfscli-avro --help
+    - hdfscli-avro --help
 
 about:
   home: http://hdfscli.readthedocs.org
@@ -50,3 +51,5 @@ about:
 extra:
   recipe-maintainers:
     - mariusvniekerk
+    - ericdill
+    - parente
