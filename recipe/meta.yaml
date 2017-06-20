@@ -10,6 +10,7 @@ source:
   sha256: 68ec3734d4ce02dc407be8bc5a2da8411a7f143270a1da9fdfc9dce0fb1a7d6b
 
 build:
+  skip: True  # [py36]
   number: 0
   entry_points:
     - hdfscli = hdfs.__main__:main
