@@ -10,14 +10,16 @@ source:
   sha256: a40fe99ccb03b5c3247b33a4110eb21b57405dd7c3f1b775e362e66c19b44bc6
 
 build:
-  number: 0
+  noarch: python
+  number: 1
   entry_points:
     - hdfscli = hdfs.__main__:main
     - hdfscli-avro = hdfs.ext.avro.__main__:main
-  script: python setup.py install --single-version-externally-managed --record record.txt
+  script: python -m pip install --no-deps --ignore-installed .
 
 requirements:
-  build:
+  host:
+    - pip
     - python
     - setuptools
 
