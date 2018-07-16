@@ -14,14 +14,15 @@ Summary: HdfsCLI: API and command line interface for HDFS.
 Current build status
 ====================
 
-Linux: [![Circle CI](https://circleci.com/gh/conda-forge/python-hdfs-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/python-hdfs-feedstock)
-OSX: [![TravisCI](https://travis-ci.org/conda-forge/python-hdfs-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/python-hdfs-feedstock)
-Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/python-hdfs-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/python-hdfs-feedstock/branch/master)
+All platforms:
+[![noarch](https://img.shields.io/circleci/project/github/conda-forge/python-hdfs-feedstock/master.svg?label=noarch)](https://circleci.com/gh/conda-forge/python-hdfs-feedstock)
 
 Current release info
 ====================
-Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/python-hdfs/badges/version.svg)](https://anaconda.org/conda-forge/python-hdfs)
-Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/python-hdfs/badges/downloads.svg)](https://anaconda.org/conda-forge/python-hdfs)
+
+| Name | Downloads | Version | Platforms |
+| --- | --- | --- | --- |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-python--hdfs-green.svg)](https://anaconda.org/conda-forge/python-hdfs) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/python-hdfs.svg)](https://anaconda.org/conda-forge/python-hdfs) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/python-hdfs.svg)](https://anaconda.org/conda-forge/python-hdfs) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/python-hdfs.svg)](https://anaconda.org/conda-forge/python-hdfs) |
 
 Installing python-hdfs
 ======================
