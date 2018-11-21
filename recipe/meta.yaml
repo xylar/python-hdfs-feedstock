@@ -1,4 +1,4 @@
-{% set version = "2.1.0" %}
+{% set version = "2.2.0" %}
 
 package:
   name: python-hdfs
@@ -7,11 +7,11 @@ package:
 source:
   fn: hdfs-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/h/hdfs/hdfs-{{ version }}.tar.gz
-  sha256: a40fe99ccb03b5c3247b33a4110eb21b57405dd7c3f1b775e362e66c19b44bc6
+  sha256: c8d92284cf350827890ffb16d2b757b208453d17d97b48e8743c469c91406639
 
 build:
   noarch: python
-  number: 1
+  number: 0
   entry_points:
     - hdfscli = hdfs.__main__:main
     - hdfscli-avro = hdfs.ext.avro.__main__:main
