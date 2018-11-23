@@ -1,4 +1,4 @@
-{% set version = "2.2.0" %}
+{% set version = "2.2.1" %}
 
 package:
   name: python-hdfs
@@ -7,7 +7,7 @@ package:
 source:
   fn: hdfs-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/h/hdfs/hdfs-{{ version }}.tar.gz
-  sha256: c8d92284cf350827890ffb16d2b757b208453d17d97b48e8743c469c91406639
+  sha256: 92fdf7fc7203d5d20cab467fb37d6f347b56dbf82e4440b47a867dd3c20d10f0
 
 build:
   noarch: python
