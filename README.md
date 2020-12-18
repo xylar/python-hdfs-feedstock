@@ -115,6 +115,7 @@ Feedstock Maintainers
 =====================
 
 * [@FernandezMathieu](https://github.com/FernandezMathieu/)
+* [@efiop](https://github.com/efiop/)
 * [@ericdill](https://github.com/ericdill/)
 * [@mariusvniekerk](https://github.com/mariusvniekerk/)
 * [@parente](https://github.com/parente/)
