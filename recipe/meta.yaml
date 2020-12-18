@@ -1,4 +1,4 @@
-{% set version = "2.5.7" %}
+{% set version = "2.5.8" %}
 
 package:
   name: python-hdfs
@@ -7,7 +7,7 @@ package:
 source:
   fn: hdfs-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/h/hdfs/hdfs-{{ version }}.tar.gz
-  sha256: 2b33124ed1b67add2d43d4bf2aee5cf86323a292bb8fa001ce886be22f1aa630
+  sha256: 1be117549fc1285571bc51aedc15df5a203138dba02f9adfa26761b69a949370
 
 build:
   noarch: python
@@ -20,13 +20,11 @@ build:
 requirements:
   host:
     - pip
-    - python
-    - setuptools
-
+    - python >=2.7
   run:
-    - python
+    - python >=2.7
     - docopt
-    - fastavro >=0.9.6
+    - fastavro >=0.21.19
     - pandas >=0.14.1
     - requests >=2.7.0
     - requests-kerberos >=0.7.0
@@ -47,6 +45,7 @@ test:
 about:
   home: http://hdfscli.readthedocs.org
   license: MIT
+  license_file: LICENSE
   summary: 'HdfsCLI: API and command line interface for HDFS.'
 
 extra:
@@ -54,3 +53,4 @@ extra:
     - mariusvniekerk
     - ericdill
     - parente
+    - FernandezMathieu
