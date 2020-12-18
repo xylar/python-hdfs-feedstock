@@ -20,11 +20,9 @@ build:
 requirements:
   host:
     - pip
-    - python
-    - setuptools
-
+    - python >=2.7
   run:
-    - python
+    - python >=2.7
     - docopt
     - fastavro >=0.21.19
     - pandas >=0.14.1
@@ -47,6 +45,7 @@ test:
 about:
   home: http://hdfscli.readthedocs.org
   license: MIT
+  license_file: LICENSE
   summary: 'HdfsCLI: API and command line interface for HDFS.'
 
 extra:
