@@ -1,13 +1,17 @@
-About python-hdfs
-=================
+About python-hdfs-feedstock
+===========================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/python-hdfs-feedstock/blob/main/LICENSE.txt)
 
 Home: http://hdfscli.readthedocs.org
 
 Package license: MIT
 
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/python-hdfs-feedstock/blob/main/LICENSE.txt)
-
 Summary: HdfsCLI: API and command line interface for HDFS.
+
+Development: https://github.com/mtth/hdfs
+
+Documentation: http://hdfscli.readthedocs.org
 
 Current build status
 ====================
@@ -147,4 +151,5 @@ Feedstock Maintainers
 * [@efiop](https://github.com/efiop/)
 * [@mariusvniekerk](https://github.com/mariusvniekerk/)
 * [@parente](https://github.com/parente/)
+* [@xylar](https://github.com/xylar/)
 
