@@ -20,14 +20,11 @@ build:
 requirements:
   host:
     - pip
-    - python >=2.7
+    - python >=3.7
   run:
-    - python >=2.7
+    - python >=3.7
     - docopt
-    - fastavro >=0.21.19
-    - pandas >=0.14.1
     - requests >=2.7.0
-    - requests-kerberos >=0.7.0
     - six >=1.9.0
 
 test:
@@ -37,16 +34,21 @@ test:
     - hdfs.ext.avro
     - hdfs.ext.dataframe
     - hdfs.ext.kerberos
-
   commands:
+    - pip check
     - hdfscli --help
     - hdfscli-avro --help
+  requires:
+    - pip
 
 about:
   home: http://hdfscli.readthedocs.org
   license: MIT
+  license_family: MIT
   license_file: LICENSE
   summary: 'HdfsCLI: API and command line interface for HDFS.'
+  dev_url: https://github.com/mtth/hdfs
+  doc_url: http://hdfscli.readthedocs.org
 
 extra:
   recipe-maintainers:
@@ -55,3 +57,4 @@ extra:
     - parente
     - FernandezMathieu
     - efiop
+    - xylar
