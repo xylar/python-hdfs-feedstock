@@ -1,0 +1,92 @@
+From 85cb5cfd073b8d71c1e212f3946dcfcc925e0fa8 Mon Sep 17 00:00:00 2001
+From: "Benjamin A. Beasley" <code@musicinmybrain.net>
+Date: Sat, 12 Aug 2023 09:37:42 -0400
+Subject: [PATCH] Replace imp.load_source()
+
+---
+ hdfs/config.py        | 22 ++++++++++++++--------
+ test/test_examples.py | 10 ++--------
+ 2 files changed, 16 insertions(+), 16 deletions(-)
+
+diff --git a/hdfs/config.py b/hdfs/config.py
+index 2c3627d..fce85ed 100644
+--- a/hdfs/config.py
++++ b/hdfs/config.py
+@@ -15,21 +15,27 @@
+ from logging.handlers import TimedRotatingFileHandler
+ from six.moves.configparser import ParsingError, RawConfigParser
+ from tempfile import gettempdir
++import importlib.util
++import importlib.machinery
+ import logging as lg
+ import os
+ import os.path as osp
+ import sys
+ 
+-try:
+-  # Python 3.12 and above
+-  from importlib import load_source
+-except ImportError:
+-  # Below Python 3.12
+-  from imp import load_source
+-
+ _logger = lg.getLogger(__name__)
+ 
+ 
++def _load_source(modname, filename):
++  """Imitate the old imp.load_source() function, removed in Python 3.12"""
++  # Based on sample code in https://docs.python.org/3.12/whatsnew/3.12.html.
++  loader = importlib.machinery.SourceFileLoader(modname, filename)
++  spec = importlib.util.spec_from_file_location(modname, filename, loader=loader)
++  module = importlib.util.module_from_spec(spec)
++  sys.modules[module.__name__] = module
++  loader.exec_module(module)
++  return module
++
++
+ class NullHandler(lg.Handler):
+ 
+   """Pass-through logging handler.
+@@ -177,7 +183,7 @@ def _load(suffix, loader):
+ 
+ 
+     _load('modules', __import__)
+-    _load('paths', lambda path: load_source(
++    _load('paths', lambda path: _load_source(
+       osp.splitext(osp.basename(path))[0],
+       path
+     ))
+diff --git a/test/test_examples.py b/test/test_examples.py
+index 7e988b0..a5739c0 100644
+--- a/test/test_examples.py
++++ b/test/test_examples.py
+@@ -4,19 +4,13 @@
+ """Test that the examples run correctly."""
+ 
+ from hdfs import Config
++from hdfs.config import _load_source
+ from six import add_metaclass
+ from test.util import _IntegrationTest
+ import os
+ import os.path as osp
+ import pytest
+ 
+-try:
+-  # Python 3.12 and above
+-  from importlib import load_source
+-except ImportError:
+-  # Below Python 3.12
+-  from imp import load_source
+-
+ class _ExamplesType(type):
+ 
+   """Metaclass generating a test for each example."""
+@@ -31,7 +25,7 @@ def make_test(fname):
+ 
+       def test(self):
+         try:
+-          load_source(module, fpath)
++          _load_source(module, fpath)
+         except ImportError:
+           # Unmet dependency.
+           pytest.skip()
